@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 450px;
+    width: 350px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+div#content {
+    border: 1px solid black;
+    height: 400px;    
+}
+
+.group { zoom: 1 }
