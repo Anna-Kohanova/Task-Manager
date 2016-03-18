@@ -4,7 +4,7 @@
 }
 
 body {
-    height: 450px;
+    height: 400px;
     width: 350px;
 }
 
@@ -17,6 +17,19 @@ h1 {
 div#content {
     border: 1px solid black;
     height: 400px;    
+}
+
+.showButton{
+    background:url(plus.png) no-repeat;
+    border: none;
+    border-radius: 100%;
+    float: right;
+    width: 20px;
+    height: 20px;
+}
+
+div.div_tasks{
+    height: 100px;
 }
 
 .group { zoom: 1 }
