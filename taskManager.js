@@ -12,8 +12,11 @@ $(function () {
                 handle: "h3",
                 stop: function (event, ui) {
                     ui.item.children("h3").triggerHandler("focusout");
-
                     $(this).accordion("refresh");
                 }
             });
+});
+
+$("button.showButton").click(function () {
+    $("div.add_box").fadeToggle();
 });
