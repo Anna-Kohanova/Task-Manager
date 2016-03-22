@@ -6,6 +6,7 @@
 body {
     height: 400px;
     width: 350px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -24,12 +25,47 @@ div#content {
     border: none;
     border-radius: 100%;
     float: right;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 div.div_tasks{
-    height: 100px;
+    height: 80px;
+    position: relative;
+    display: block;    
+}
+
+ul.todo-list{
+    padding: 10px 0px 0px 0px;
+}
+
+button.destroy{
+        display: none;
+	position: absolute;
+	right: 10px;
+	width: 15px;
+	height: 15px;
+	margin: auto 0;
+	font-size: 15px;
+	color: #cc9a9a;
+}
+
+button.destroy:hover {
+	color: #af5b5e;
+}
+
+button.destroy:after {
+	content: '×';
+}
+
+div.div_tasks li:hover .destroy {
+	display: block;
+}
+
+.new-todo {
+    width: 260px;
+    padding: 5px 0px 5px 0px;
+    border: 1px solid green;
 }
 
 .group { zoom: 1 }

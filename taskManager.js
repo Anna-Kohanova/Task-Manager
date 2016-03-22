@@ -1,8 +1,4 @@
 $(function () {
-    $("#tabs-1").tabs();
-});
-
-$(function () {
     $(".accordion")
             .accordion({
                 header: "> div > h3"
@@ -18,5 +14,5 @@ $(function () {
 });
 
 $("button.showButton").click(function () {
-    $("div.add_box").fadeToggle();
+    
 });
