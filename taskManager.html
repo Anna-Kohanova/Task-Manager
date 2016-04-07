@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <title>Task Manager</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css"/>        
         <link rel ="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
         <script src="jquery-2.2.1.js"></script>
         <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
@@ -23,13 +25,17 @@
                     <h3>All day</h3> 
 
                     <div class="div_tasks">
-                        <input class="new-todo" placeholder="Add new task"> <button class="showButton"></button>  
+                        <div id="input">
+                            <input class="new-todo form-control" placeholder="Add new task"> 
+                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        </div>
+                        
                         <ul class="todo-list">
                             <li class>
-                                <div class="view">
+                                <div class="task">
                                     <input class="toggle" type="checkbox"> 
-                                    <label>sdfdsfdsf</label>
-                                    <button class="destroy"></button>
+                                    <label class="taskText">sdfdsfdsf</label>
+                                     <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                                 </div>
                             </li>
                         </ul>
@@ -39,19 +45,28 @@
                 <div class="group">
                     <h3>Morning</h3>
                     <div class="div_tasks">
-
+                        <div id="input">
+                            <input class="new-todo form-control" placeholder="Add new task"> 
+                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        </div>
                     </div>
                 </div>
                 <div class="group">
                     <h3>Day</h3>
                     <div class="div_tasks">
-
+                        <div id="input">
+                            <input class="new-todo form-control" placeholder="Add new task"> 
+                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        </div>
                     </div>
                 </div>
                 <div class="group">
                     <h3>Evening</h3>
                     <div class="div_tasks">
-
+                        <div id="input">
+                            <input class="new-todo form-control" placeholder="Add new task"> 
+                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>

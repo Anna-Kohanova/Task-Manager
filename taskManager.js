@@ -1,6 +1,7 @@
 $(function () {
     $(".accordion")
             .accordion({
+				heightStyle: "content",
                 header: "> div > h3"
             })
             .sortable({
@@ -13,6 +14,10 @@ $(function () {
             });
 });
 
-$("button.showButton").click(function () {
+$("#plus").click(function () {
+    window.alert("dfgfdgd");
+});
+
+$(".toggle").click(function() {
     
 });

@@ -4,9 +4,9 @@
 }
 
 body {
-    height: 400px;
     width: 350px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 h1 {
@@ -15,57 +15,64 @@ h1 {
     padding: 10px;
 }
 
+li {
+    display: list-item;
+}
+
+label {
+    display: inline-block !important;
+}
+
 div#content {
     border: 1px solid black;
-    height: 400px;    
+    display:block;
+    overflow:auto;
 }
 
-.showButton{
-    background:url(plus.png) no-repeat;
-    border: none;
-    border-radius: 100%;
-    float: right;
-    width: 25px;
-    height: 25px;
+div.accordion{
+    max-height: 400px;
 }
 
-div.div_tasks{
-    height: 80px;
+div.div_tasks {
+    display: block;
     position: relative;
-    display: block;    
+}
+
+div#input{
+    display: inline-block;
+    width: 100%;
+}
+
+div#task {
+    display:inline-block;
+}
+
+a#plus{
+    display: inline-block;
+    width: 5%;
+    float: right;
+    vertical-align: middle; 
+}
+
+a#remove {
+    display: inline-block;
+    width: 5%;
+    float: right;
 }
 
 ul.todo-list{
     padding: 10px 0px 0px 0px;
-}
-
-button.destroy{
-        display: none;
-	position: absolute;
-	right: 10px;
-	width: 15px;
-	height: 15px;
-	margin: auto 0;
-	font-size: 15px;
-	color: #cc9a9a;
-}
-
-button.destroy:hover {
-	color: #af5b5e;
-}
-
-button.destroy:after {
-	content: '×';
-}
-
-div.div_tasks li:hover .destroy {
-	display: block;
+    list-style: none;
 }
 
 .new-todo {
-    width: 260px;
-    padding: 5px 0px 5px 0px;
+    width: 90% !important;
     border: 1px solid green;
+    display: inline-block !important;
+}
+
+.toggle {
+    display: inline-block !important;
 }
 
 .group { zoom: 1 }
