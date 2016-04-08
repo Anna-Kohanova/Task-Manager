@@ -43,19 +43,20 @@ div#input{
     width: 100%;
 }
 
-div#task {
-    display:inline-block;
-}
-
 a#plus{
-    display: inline-block;
+    display: inline-block !important;
     width: 5%;
     float: right;
-    vertical-align: middle; 
+    margin-top: 6px;
+}
+
+div.task:hover a#remove{
+    display: block;
 }
 
 a#remove {
     display: inline-block;
+    display: none;
     width: 5%;
     float: right;
 }

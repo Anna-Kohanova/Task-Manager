@@ -15,9 +15,14 @@ $(function () {
 });
 
 $("#plus").click(function () {
-    window.alert("dfgfdgd");
+    
 });
 
 $(".toggle").click(function() {
-    
+    if ($(this).is(':checked')) {
+        $(this).siblings('label').css('text-decoration', 'line-through');
+    }
+    else {
+        $(this).siblings('label').css('text-decoration', 'none');
+    }
 });
