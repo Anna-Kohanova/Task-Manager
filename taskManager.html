@@ -26,27 +26,25 @@
 
                     <div class="div_tasks">
                         <div id="input">
-                            <input class="new-todo form-control" placeholder="Add new task"> 
+                            <input id="inputTask" class="new-todo form-control" name = "new" placeholder="Add new task"  autofocus> 
                             <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                         </div>
-                        
-                        <ul class="todo-list">
-                            <li class>
-                                <div class="task">
-                                    <input class="toggle" type="checkbox"> 
-                                    <label class="taskText">Task-1</label>
-                                     <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                                </div>
-                                <div class="task">
-                                    <input class="toggle" type="checkbox"> 
-                                    <label class="taskText">Task-2</label>
-                                     <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                                </div>
-                                <div class="task">
-                                    <input class="toggle" type="checkbox"> 
-                                    <label class="taskText">Task-3</label>
-                                     <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                                </div>
+
+                        <ul id="taskList">
+                            <li class="task">
+                                <input class="toggle" type="checkbox"> 
+                                <label class="taskText">Task-1</label>
+                                <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                            </li>
+                            <li class="task">
+                                <input class="toggle" type="checkbox"> 
+                                <label class="taskText">Task-2</label>
+                                <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                            </li>
+                            <li class="task">
+                                <input class="toggle" type="checkbox"> 
+                                <label class="taskText">Task-3</label>
+                                <a id="remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                             </li>
                         </ul>
                     </div>

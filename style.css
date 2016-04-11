@@ -17,6 +17,7 @@ h1 {
 
 li {
     display: list-item;
+    color: green;
 }
 
 label {
@@ -50,7 +51,7 @@ a#plus{
     margin-top: 6px;
 }
 
-div.task:hover a#remove{
+.task:hover a#remove{
     display: block;
 }
 
