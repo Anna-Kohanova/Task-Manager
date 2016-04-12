@@ -73,6 +73,10 @@ ul.todo-list{
     display: inline-block !important;
 }
 
+.taskText {
+    padding-left: 10px;
+}
+
 .toggle {
     display: inline-block !important;
 }
