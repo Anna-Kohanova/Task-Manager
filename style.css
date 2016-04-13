@@ -51,11 +51,11 @@ a#plus{
     margin-top: 6px;
 }
 
-.task:hover a#remove{
+.task:hover #remove{
     display: block;
 }
 
-a#remove {
+#remove {
     display: inline-block;
     display: none;
     width: 5%;
