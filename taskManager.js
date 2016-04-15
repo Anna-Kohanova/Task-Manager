@@ -14,7 +14,7 @@ $(function () {
             });
 });
 
-$('#taskList').sortable();
+//$('#taskList').sortable();
 
 $(document).ready(function () {
     $("#inputTask").keyup(function (event) {
