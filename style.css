@@ -4,15 +4,10 @@
 }
 
 body {
-    width: 350px;
+    width: 330px;
     margin: 0 auto;
-    overflow: hidden;
-}
-
-h1 {
-    font-size: 30px;
-    text-align: center;
-    padding: 10px;
+    /*overflow: scroll;
+	overflow-x: hidden;*/
 }
 
 li {
@@ -20,28 +15,41 @@ li {
     color: green;
 }
 
+ul {
+	display: block;
+}
+
 label {
     display: inline-block !important;
 }
 
-div#content {
-    border: 1px solid black;
-    display:block;
-    overflow:auto;
+
+iframe {
+	height: 350px;
+	/*overflow-y:scroll !important;	
+	overflow-x:hidden !important;*/
 }
 
-div.accordion{
-    max-height: 400px;
+div#header {
+	padding: 5px;
+	font-size: 30px;
+    text-align: center;
 }
 
-div.div_tasks {
+div#div_tasks {
     display: block;
     position: relative;
 }
 
-div#input{
+div#inputContainer {
+	padding: 15px;
     display: inline-block;
-    width: 100%;
+    width: 95%;	
+}
+
+div#listWrapper {
+	left: 0;
+	right: 0;
 }
 
 a#plus{
@@ -51,20 +59,16 @@ a#plus{
     margin-top: 6px;
 }
 
-.task:hover #remove{
+.task:hover span.remove{
     display: block;
 }
 
-#remove {
-    display: inline-block;
+span.remove {
+   /* display: inline-block;*/
     display: none;
-    width: 5%;
+    width: 10%;
     float: right;
-}
-
-ul.todo-list{
-    padding: 10px 0px 0px 0px;
-    list-style: none;
+	margin-right: 10px;
 }
 
 .new-todo {

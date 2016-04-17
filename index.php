@@ -11,12 +11,17 @@
         <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
         <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
-        <script async src="taskManager.js"></script>
-		
+        <script async src="taskManager.js"></script>		
     </head>
     <body>	
+	
+	<div id="header">
+		<h1>
+			Task Manager
+		</h1>
+	</div>
 		
-		<?php
+			<?php
 $client_id = '165219503046-uec4qg1cqbaok7fq754t4bcqbl90hj82.apps.googleusercontent.com';
 $client_secret = 'hgCcpVqhENP26Rn2pbukoXjM'; // Client secret
 $redirect_uri = 'http://my/index.php'; // Redirect URI
@@ -72,65 +77,20 @@ if ($result) {
     echo "Имя пользователя: " . $userInfo['name'] . '<br />';
     echo "Email: " . $userInfo['email'] . '<br />';
     echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
-    echo "Пол пользователя: " . $userInfo['gender'] . '<br />';
 	echo "<br />";
 }
-
-
 }
-
-
 ?>
-
-
-        <h1>
-            Task Manager
-        </h1>
-
-        <div id="content">
-            <div class="accordion">
-                <div class="group">
-                    <h3>All day</h3> 
-
-                    <div class="div_tasks">
-                        <div id="input">
-                            <input id="inputTask" class="new-todo form-control" name = "new" placeholder="Add new task"  autofocus> 
+		
+		<div id="div_tasks">
+                        <div id="inputContainer">
+                            <input id="inputTask" class="new-todo form-control" name = "new" placeholder="Add new task"  maxlength="50" autofocus> 
                             <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                         </div>
+						<div id="listWrapper">
+							<ul id="taskList"></ul>
+						</div>
 
-                        <ul id="taskList">
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="group">
-                    <h3>Morning</h3>
-                    <div class="div_tasks">
-                        <div id="input">
-                            <input class="new-todo form-control" placeholder="Add new task"> 
-                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="group">
-                    <h3>Day</h3>
-                    <div class="div_tasks">
-                        <div id="input">
-                            <input class="new-todo form-control" placeholder="Add new task"> 
-                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="group">
-                    <h3>Evening</h3>
-                    <div class="div_tasks">
-                        <div id="input">
-                            <input class="new-todo form-control" placeholder="Add new task"> 
-                            <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </body>
 </html>

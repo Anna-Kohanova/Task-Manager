@@ -13,7 +13,6 @@ $(function () {
                 }
             });
 });
-
 //$('#taskList').sortable();
 
 $(document).ready(function () {
@@ -37,7 +36,6 @@ updateListView();
 
 /////// ADD NEW TASK IN LIST TASKS, UPDATING HTML, SAVING IN LOCAL STORAGE ////////
 function addToList(task) {
-
     tasks.push({
         name: task,
         done: false
@@ -74,7 +72,6 @@ $("#remove").click(function () {
 
 /////// UPDATING OF HTML //////
 function updateListView() {
-
     var ul = document.getElementById('taskList');
     ul.innerHTML = '';
 
@@ -94,8 +91,7 @@ function updateListView() {
         label.textContent = task.name;
         
         var span = document.createElement("span");
-        span.className = "glyphicon glyphicon-remove";
-        span.id = "remove";
+        span.className = "remove glyphicon glyphicon-remove";
         span.onclick = deleteFromList;
 
         li.appendChild(ch);
@@ -103,6 +99,7 @@ function updateListView() {
         li.appendChild(span);
 
         ul.insertBefore(li, ul.firstChild);
+		$('.new-todo').focus();
     });
 }
 
