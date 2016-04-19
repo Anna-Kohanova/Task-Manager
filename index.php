@@ -5,7 +5,15 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css"/>        
         <link rel ="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://raw.githubusercontent.com/noizwaves/bootstrap-social-buttons/v1.0.0/social-buttons.css">		
+		
+		<link rel="stylesheet" href="bootstrap-social.css">
+		
+
+		
 
         <script src="jquery-2.2.1.js"></script>
         <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
@@ -16,12 +24,13 @@
     <body>	
 	
 	<div id="header">
-		<h1>
+	
+		<p>
+			<img class="avatar smaller-image" src="">
 			Task Manager
-		</h1>
-	</div>
-		
-			<?php
+		</p>
+	<div id="sign">
+	<?php
 $client_id = '165219503046-uec4qg1cqbaok7fq754t4bcqbl90hj82.apps.googleusercontent.com';
 $client_secret = 'hgCcpVqhENP26Rn2pbukoXjM'; // Client secret
 $redirect_uri = 'http://my/index.php'; // Redirect URI
@@ -35,7 +44,7 @@ $params = array(
     'scope'         => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
 );
 
-echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Google</a></p>';
+echo $link = '<a href="' . $url . '?' . urldecode(http_build_query($params)) . '" style =""> <button class="btn btn-xs btn-google"><i class="icon-google"></i> Sign in</button></a>';
 
 if (isset($_GET['code'])) {
 	$result = false;
@@ -71,20 +80,20 @@ if (isset($tokenInfo['access_token'])) {
         $userInfo = $userInfo;
         $result = true;
     }
-}
-if ($result) {
-    echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-    echo "Имя пользователя: " . $userInfo['name'] . '<br />';
-    echo "Email: " . $userInfo['email'] . '<br />';
-    echo "Ссылка на профиль пользователя: " . $userInfo['link'] . '<br />';
-	echo "<br />";
-}
+}	
+echo '<img class="avatar smaller-image" 	src="' . $userInfo['picture'] . '" style = "width: 40px; height: 40px;"/>';
 }
 ?>
+
+</div>
+	</div>
+		
+			
 		
 		<div id="div_tasks">
+		
                         <div id="inputContainer">
-                            <input id="inputTask" class="new-todo form-control" name = "new" placeholder="Add new task"  maxlength="50" autofocus> 
+							<input id="taskInput" class="new-todo form-control" name = "new" placeholder="Add new task"  maxlength="25" autofocus>
                             <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                         </div>
 						<div id="listWrapper">

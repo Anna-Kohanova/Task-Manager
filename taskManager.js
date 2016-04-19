@@ -16,7 +16,7 @@ $(function () {
 //$('#taskList').sortable();
 
 $(document).ready(function () {
-    $("#inputTask").keyup(function (event) {
+    $("#taskInput").keyup(function (event) {
         if (event.keyCode == 13) {
             $("#plus").click();
         }

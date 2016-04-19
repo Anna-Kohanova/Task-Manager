@@ -4,52 +4,79 @@
 }
 
 body {
-    width: 330px;
     margin: 0 auto;
-    /*overflow: scroll;
-	overflow-x: hidden;*/
+	display: block;
+	overflow: hidden;
 }
 
 li {
     display: list-item;
-    color: green;
+    color: white;
+	position: relative;	
+	word-break: break-all;
+	white-space: pre-line;
 }
 
-ul {
+ul#taskList {
 	display: block;
+	list-style: none;
 }
 
 label {
     display: inline-block !important;
 }
 
+p {
+	float:left;
+	width: 80%;
+	font-size: 30px;
+    text-align: center;
+	font-family: Arial, sans-serif;
+}
+
+div#sign{
+	float: right;
+	margin-top: 4%;
+	width: 20%;
+}
+
 
 iframe {
-	height: 350px;
+	height: 400px;
+	width: 300px;
 	/*overflow-y:scroll !important;	
 	overflow-x:hidden !important;*/
 }
 
+div {
+	display: block;
+}
+
+img.avatar {
+	float: left;
+}
+
 div#header {
-	padding: 5px;
-	font-size: 30px;
-    text-align: center;
+	height: 60px;
+	background-color: #B0E0E6;
 }
 
 div#div_tasks {
     display: block;
     position: relative;
+	margin: 0 auto;
 }
 
 div#inputContainer {
-	padding: 15px;
+	padding: 10px;
+	padding-top: 0px;
     display: inline-block;
-    width: 95%;	
+	background-color: #B0E0E6;
+    width: 100%;	
 }
 
-div#listWrapper {
-	left: 0;
-	right: 0;
+div#inputContainer #taskInput {
+	width: 100%;
 }
 
 a#plus{
@@ -59,21 +86,38 @@ a#plus{
     margin-top: 6px;
 }
 
+div#listWrapper {		
+	height: 230px;
+	width: 300px;
+	padding: 10px;
+	
+	left: 0;
+	right: 0;
+	position: absolute;
+	overflow-y: scroll;	
+	
+	background-color: #666;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px;
+	-moz-border-radius: 5px;
+}
+
 .task:hover span.remove{
     display: block;
 }
 
 span.remove {
-   /* display: inline-block;*/
     display: none;
-    width: 10%;
     float: right;
 	margin-right: 10px;
+	margin: auto 0;
+	buttom: 0;
+	top: 0;
 }
 
 .new-todo {
     width: 90% !important;
-    border: 1px solid green;
     display: inline-block !important;
 }
 
