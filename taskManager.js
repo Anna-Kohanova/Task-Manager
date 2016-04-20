@@ -1,20 +1,3 @@
-$(function () {
-    $(".accordion")
-            .accordion({
-                heightStyle: "content",
-                header: "> div > h3"
-            })
-            .sortable({
-                axis: "y",
-                handle: "h3",
-                stop: function (event, ui) {
-                    ui.item.children("h3").triggerHandler("focusout");
-                    $(this).accordion("refresh");
-                }
-            });
-});
-//$('#taskList').sortable();
-
 $(document).ready(function () {
     $("#taskInput").keyup(function (event) {
         if (event.keyCode == 13) {
@@ -30,6 +13,10 @@ if (JSON.parse(localStorage.getItem('taskList')))
     tasks = JSON.parse(localStorage.getItem('taskList'));
 else
     localStorage.setItem("taskList", JSON.stringify(tasks));
+
+
+//	var tasks = JSON.parse(document.getElementById('json').value);
+
 
 updateListView();
 
@@ -72,6 +59,7 @@ $("#remove").click(function () {
 
 /////// UPDATING OF HTML //////
 function updateListView() {
+	
     var ul = document.getElementById('taskList');
     ul.innerHTML = '';
 
@@ -100,6 +88,9 @@ function updateListView() {
 
         ul.insertBefore(li, ul.firstChild);
 		$('.new-todo').focus();
+		
+		
+	document.getElementById('json').value = JSON.stringify(tasks);
     });
 }
 
