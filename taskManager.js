@@ -9,13 +9,13 @@ $(document).ready(function () {
 var tasks = [],
         completedTasks = [];
 
-if (JSON.parse(localStorage.getItem('taskList')))
+/*if (JSON.parse(localStorage.getItem('taskList')))
     tasks = JSON.parse(localStorage.getItem('taskList'));
 else
-    localStorage.setItem("taskList", JSON.stringify(tasks));
+    localStorage.setItem("taskList", JSON.stringify(tasks));*/
 
 
-//	var tasks = JSON.parse(document.getElementById('json').value);
+	var tasks = JSON.parse(document.getElementById('json').value);
 
 
 updateListView();
@@ -34,7 +34,7 @@ function addToList(task) {
 
 /////// DELETE FROM LIST TASKS, UPDATING HTML, SAVING IN LOCAL STORAGE /////
 function deleteFromList(e) {
-    tasks.splice(e.target.parentElement.id, 1);    
+    tasks.splice(e.target.parentElement.id, 1);
     saveLocalList();
     updateListView();
 }
@@ -59,14 +59,14 @@ $("#remove").click(function () {
 
 /////// UPDATING OF HTML //////
 function updateListView() {
-	
+
     var ul = document.getElementById('taskList');
     ul.innerHTML = '';
 
     tasks.forEach(function (task) {
         var li = document.createElement("li");
         li.className = "task";
-        li.id = tasks.indexOf( task );
+        li.id = tasks.indexOf(task);
 
         var ch = document.createElement("input");
         ch.className = "toggle";
@@ -77,7 +77,7 @@ function updateListView() {
         var label = document.createElement("label");
         label.className = "taskText";
         label.textContent = task.name;
-        
+
         var span = document.createElement("span");
         span.className = "remove glyphicon glyphicon-remove";
         span.onclick = deleteFromList;
@@ -87,10 +87,10 @@ function updateListView() {
         li.appendChild(span);
 
         ul.insertBefore(li, ul.firstChild);
-		$('.new-todo').focus();
-		
-		
-	document.getElementById('json').value = JSON.stringify(tasks);
+        $('.new-todo').focus();
+
+
+        document.getElementById('json').value = JSON.stringify(tasks);
     });
 }
 
