@@ -8,6 +8,13 @@
         "default_icon": "icon.png",
         "default_popup": "index.html"
     },
+
+"content_scripts": [
+    {
+      "js": ["taskManager.js", "auth.js"]
+    }
+  ],
+  
     "permissions": [
         "identity"
     ]
