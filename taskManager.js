@@ -9,13 +9,12 @@ $(document).ready(function () {
 var tasks = [],
         completedTasks = [];
 
-/*if (JSON.parse(localStorage.getItem('taskList')))
+if (JSON.parse(localStorage.getItem('taskList')))
     tasks = JSON.parse(localStorage.getItem('taskList'));
 else
-    localStorage.setItem("taskList", JSON.stringify(tasks));*/
-
-
-	var tasks = JSON.parse(document.getElementById('json').value);
+    localStorage.setItem("taskList", JSON.stringify(tasks));
+	//var tasks = JSON.parse(document.getElementById('json').value);
+	alert("2");
 
 
 updateListView();
@@ -59,7 +58,6 @@ $("#remove").click(function () {
 
 /////// UPDATING OF HTML //////
 function updateListView() {
-
     var ul = document.getElementById('taskList');
     ul.innerHTML = '';
 

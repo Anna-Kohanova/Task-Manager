@@ -16,23 +16,25 @@
         <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
         <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
-        <script async src="taskManager.js"></script>	
+        
 
 
         <link rel="stylesheet" href="style.css"/>	
 
         <script type="text/javascript">
-
+		
                     var CLIENT_ID = '165219503046-uec4qg1cqbaok7fq754t4bcqbl90hj82.apps.googleusercontent.com';
                     var SCOPES = 'https://www.googleapis.com/auth/drive';
 					
 					var metadata = {}; // file metadata for creating/updating
-					var appData = {};
+					var appData = {}; // data for saving
 					var contentType = 'application/json';
+					var fileDefault = {}; // default source file with data	
 					
                     /**
                      * Called when the client library is loaded to start the auth flow.
                      */
+					 
                             function handleClientLoad() {
                             window.setTimeout(checkAuth, 1);
                                     }
@@ -57,19 +59,19 @@
                             if (authResult && !authResult.error) {
 							// Access token has been successfully retrieved, requests can be sent to the API.
 							 gapi.client.load('drive', 'v2', function(){
-								getData();
 								getFile();
+								alert("1");
 								doitButton.style.display = 'block';
 							  });
 							} else {
 							  authButton.style.display = 'block';
 							}
-						  }
+						  }				  
 						  
 						  
 						  function saveData() {
 							metadata = getFileMetadata();
-							console.log(metadata);
+							//console.log(metadata);
 							checkFileExists(metadata.title, saveDataHandle);
 						  }
 						  
@@ -93,6 +95,7 @@
 						  
 						    function createFile() {
 								console.log('Creating a new file ('+metadata.title+') with data:');
+								appData = document.getElementById('json').value;
 								console.log(appData);
 								const boundary = '-------314159265358979323846264';
 								const delimiter = "\r\n--" + boundary + "\r\n";
@@ -119,8 +122,8 @@
 								request.execute(function(res) {
 								  console.log('New file created! Fileinfo:');
 								  console.log(res);
-								  fileData.id = res.id;
-								  fileData.title = res.title;
+								  fileDefault.id = res.id;
+								  fileDefault.title = res.title;
 								  setData();
 								});
 							  }
@@ -159,33 +162,43 @@
 						  
 					
 					
-					 function getData(){
-						var elemDef = document.getElementById('json').value;
+					 function getData(){						
 						
 						if (elemDef){
-						  appData = elemDef;
-						  
+						  fileDefault = elemDef;						  
 						}
 					  }
 					  
 					  function setData(){
-						if(appData.id){
-						  document.getElementById('json').value = appData;
+						if(fileDefault.id){
+						  document.getElementById('json').value = fileDefault;
+						  
 						} /*else {
 						  localStorage.removeItem(stName);
 						}*/
 					  }
 					  
-					   function getFile() {
-							if(!appData.id){ return false; }
-							console.log('We are loading data...')
-							var fileId  = appData.id;
+					   function findFile(fname){
+					  
+						var req = gapi.client.drive.files.list({q: "title='tasks'"});
+						
+						var id = req.execute(function(r){
+						console.log('We are loading data...');
 							var request = gapi.client.drive.files.get({
-							  'fileId': fileId
-							});
+							  'fileId': r.items[0].id
+							});		
 							request.execute(function(resp) {
-							  downloadFile(resp);
-							});
+							  downloadFile(resp);							  
+							});							
+						});			
+						
+					  }					  
+					  
+					   function getFile() {
+							//if(!fileDefault.id){ return false; }
+							metadata = getFileMetadata();
+							//console.log(metadata);
+							findFile(metadata.title);
 						  }
 					  
 					  
@@ -197,7 +210,8 @@
 						  xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
 						  xhr.onload = function() {
 							console.log('Data downloaded:')
-							appData = JSON.parse(xhr.responseText);
+							//appData = JSON.parse(xhr.responseText);
+							appData = xhr.responseText;
 							document.getElementById('json').value = appData;
 							console.log(appData);
 						  };
@@ -209,7 +223,7 @@
 						  console.log('Can\'t download...');
 						}
 					  }
-									  
+					  
 					  
 					  
 					  function checkFileExists(fname, callback){
@@ -230,8 +244,10 @@
 
         </script>
 
+		
 
         <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+		
 
     </head>
 
@@ -239,9 +255,9 @@
         <input type="text" id="json" >
 		
 		
-		
 
         <input type="button" id="doitButton"   onclick="saveData()"   style="display: none" value="Save Data"/> <br>
+		<input type="button" id="getFile" onclick="getFile()" style="display: show" value="Get data from file" />
         <input type="button" id="authorizeButton" style="display: show" value="Authorize" />
 
         <div id="div_tasks">
@@ -257,7 +273,7 @@
         </div>
 
 
-
+<script src="taskManager.js"></script>	
 
     </body>
 </html>
