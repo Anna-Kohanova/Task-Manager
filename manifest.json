@@ -3,19 +3,19 @@
     "name": "Task Manager",
     "description": "This extension will show Task Manager",
     "version": "1.0",
-    
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "index.html"
-    },
-
-"content_scripts": [
-    {
-      "js": ["taskManager.js", "auth.js"]
-    }
-  ],
-  
+    },	
     "permissions": [
         "identity"
-    ]
+    ],
+    "oauth2": {
+        "client_id": "165219503046-uec4qg1cqbaok7fq754t4bcqbl90hj82.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/drive"
+        ]
+    },  
+    "content_security_policy": "script-src 'self' https://apis.google.com/; object-src 'self'"
+
 }

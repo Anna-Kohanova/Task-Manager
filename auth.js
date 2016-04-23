@@ -20,13 +20,7 @@ function handleClientLoad() {
  * Check if the current user has authorized the application.
  */
 function checkAuth() {
-    gapi.auth.authorize(
-            {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
-    handleAuthResult);
-}
-
-function check() {
-    alert("1");
+    gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true}, handleAuthResult);
 }
 
 /**
@@ -37,14 +31,22 @@ function check() {
 function handleAuthResult(authResult) {
 
     var authButton = document.getElementById('authorizeButton');
-    // authButton.style.display = 'none';
+    authButton.style.display = 'none';
 
     if (authResult && !authResult.error) {
         gapi.client.load('drive', 'v2', function () {
             getFile();
         });
+
     } else {
+
         authButton.style.display = 'block';
+
+        authButton.onclick = function () {
+            gapi.auth.authorize(
+                    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
+            handleAuthResult);
+        };
     }
 }
 

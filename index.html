@@ -3,6 +3,7 @@
     <head>
         <title>Task Manager</title>
         <meta charset="UTF-8">
+
         <link rel="stylesheet" href="style.css"/>        
         <link rel ="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
 
@@ -28,7 +29,7 @@
     <body>	
 
         <input type="text" id="json" style="display: none">		
-        <input type="button" id="authorizeButton" onclick="check()" style="display: show" value="Authorize" />
+        <input type="button" id="authorizeButton" value="Authorize" onclick="checkAuth()" style="display:none;"/><!--style="displayvalue="Authorize"-->
 
         <div id="header">
             <p>Task Manager</p>

@@ -45,6 +45,7 @@ setTimeout(function () {
         }
 
         $('.new-todo').val(null);
+
         $('.new-todo').focus();
     });
 
