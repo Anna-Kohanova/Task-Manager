@@ -7,6 +7,7 @@ var contentType = 'application/json';
 var fileDefault = {}; // default source file with data	
 
 
+
 /**
  * Called when the client library is loaded to start the auth flow.
  */
@@ -22,6 +23,7 @@ function handleClientLoad() {
 function checkAuth() {
     gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true}, handleAuthResult);
 }
+
 
 /**
  * Called when authorization server replies.
@@ -39,7 +41,6 @@ function handleAuthResult(authResult) {
         });
 
     } else {
-
         authButton.style.display = 'block';
 
         authButton.onclick = function () {
@@ -49,7 +50,6 @@ function handleAuthResult(authResult) {
         };
     }
 }
-
 
 function saveData() {
     metadata = getFileMetadata();
@@ -61,6 +61,7 @@ function saveDataHandle(fileExists) {
     if (fileExists) {
         console.log('File already exists...');
         updateFile(fileExists);
+
     } else {
         console.log('Will create a new file...');
         createFile();
@@ -155,7 +156,6 @@ function findFile(fname) {
             var request = gapi.client.drive.files.get({
                 'fileId': r.items[0].id
             });
-
             request.execute(function (resp) {
                 downloadFile(resp);
             });
@@ -187,6 +187,8 @@ function downloadFile(file) {
             appData = xhr.responseText;
             document.getElementById('json').value = appData;
             console.log(appData);
+
+            setTasks();
         };
         xhr.onerror = function () {
             console.log('XHR error!');

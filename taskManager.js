@@ -7,107 +7,110 @@ $(document).ready(function () {
 });
 
 var completedTasks = [];
+var tasks = [];
 
-setTimeout(function () {
-
-    var tasks = [];
-
+function setTasks() {
     if (document.getElementById('json').value != '') {
-        var tasks = JSON.parse(document.getElementById('json').value);
+        tasks = JSON.parse(document.getElementById('json').value);
         updateListView();
     }
+}
 
+window.onload = function () {
+    document.getElementById('plus').onclick = saveTask;
+}
 
 /////// ADD NEW TASK IN LIST TASKS, UPDATING HTML, SAVING IN LOCAL STORAGE ////////
-    function addToList(task) {
+function addToList(task) {
 
-        tasks.push({
-            name: task,
-            done: false
-        });
+    tasks.push({
+        name: task,
+        done: false
+    });
 
-        updateListView();
-    }
+    updateListView();
+}
 
 /////// DELETE FROM LIST TASKS, UPDATING HTML, SAVING IN LOCAL STORAGE /////
-    function deleteFromList(e) {
-        tasks.splice(e.target.parentElement.id, 1);
-        updateListView();
-    }
+function deleteFromList(e) {
+    tasks.splice(e.target.parentElement.id, 1);
+    updateListView();
+}
+
 
 /////// "PLUS" CLICK EVENT, CALL ADDTOLIST FUNCTION //////
-    $("#plus").click(function () {
-        var itemValue = $('.new-todo').val();
+function saveTask() {
 
-        if (itemValue !== '') {
+    var itemValue = $('.new-todo').val();
 
-            addToList(itemValue);
-        }
+    if (itemValue !== '') {
 
-        $('.new-todo').val(null);
+        addToList(itemValue);
+    }
 
-        $('.new-todo').focus();
-    });
+    $('.new-todo').val(null);
+
+    $('.new-todo').focus();
+}
 
 /////// "REMOVE" CLICK EVENT, CALL "DELETEFROMLIST" FUNCTION ///////
-    $("#remove").click(function () {
-        deleteFromList();
-    });
+$("#remove").click(function () {
+    deleteFromList();
+});
 
 
 /////// UPDATING OF HTML //////
-    function updateListView() {
+function updateListView() {
 
-        var ul = document.getElementById('taskList');
-        ul.innerHTML = '';
+    var ul = document.getElementById('taskList');
+    ul.innerHTML = '';
 
-        if (tasks.length != 0) {
-            tasks.forEach(function (task) {
-                var li = document.createElement("li");
-                li.className = "task";
-                li.id = tasks.indexOf(task);
+    if (tasks.length != 0) {
+        tasks.forEach(function (task) {
 
-                var ch = document.createElement("input");
-                ch.className = "toggle";
-                ch.type = "checkbox";
-                ch.onclick = toggleChecked;
-                ch.id = tasks.indexOf(task);
+            var li = document.createElement("li");
+            li.className = "task";
+            li.id = tasks.indexOf(task);
 
-                var label = document.createElement("label");
-                label.className = "taskText";
-                label.textContent = task.name;
+            var ch = document.createElement("input");
+            ch.className = "toggle";
+            ch.type = "checkbox";
+            ch.onclick = toggleChecked;
+            ch.id = tasks.indexOf(task);
 
-                var span = document.createElement("span");
-                span.className = "remove glyphicon glyphicon-remove";
-                span.onclick = deleteFromList;
+            var label = document.createElement("label");
+            label.className = "taskText";
+            label.textContent = task.name;
 
-                li.appendChild(ch);
-                li.appendChild(label);
-                li.appendChild(span);
+            var span = document.createElement("span");
+            span.className = "remove glyphicon glyphicon-remove";
+            span.onclick = deleteFromList;
 
-                ul.insertBefore(li, ul.firstChild);
-                $('.new-todo').focus();
+            li.appendChild(ch);
+            li.appendChild(label);
+            li.appendChild(span);
 
-                document.getElementById('json').value = JSON.stringify(tasks);
-            });
-        } else {
-            document.getElementById('json').value = '';
-        }
+            ul.insertBefore(li, ul.firstChild);
+            $('.new-todo').focus();
 
-        saveData();
-
+            document.getElementById('json').value = JSON.stringify(tasks);
+        });
+    } else {
+        document.getElementById('json').value = '';
     }
+    saveData();
 
-    function toggleChecked() {
-        if ($(this).is(':checked')) {
-            $(this).siblings('label').css('text-decoration', 'line-through');
-        }
-        else {
-            $(this).siblings('label').css('text-decoration', 'none');
-        }
-        $('.new-todo').focus();
+}
+
+function toggleChecked() {
+
+    if ($(this).is(':checked')) {
+        $(this).siblings('label').css('text-decoration', 'line-through');
     }
+    else {
+        $(this).siblings('label').css('text-decoration', 'none');
+    }
+    $('.new-todo').focus();
+}
 
-    $(".toggle").on('click', toggleChecked);
-
-}, 8000);
+$(".toggle").on('click', toggleChecked);
