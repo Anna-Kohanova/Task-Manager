@@ -25,17 +25,16 @@ function checkAuth() {
 }
 
 /**
-* Get user avatar
-*/
+ * Get user avatar
+ */
 
-	function printAbout() {
-  var request = gapi.client.drive.about.get();
-  request.execute(function(resp) {
-    console.log('Current user name: ' + resp.name);
-    console.log('Root folder ID: ' + resp.rootFolderId);
-    console.log('Total quota (bytes): ' + resp.quotaBytesTotal);
-    document.getElementById('avatar').src = resp.user.picture.url;
-  });
+function printAbout() {
+    var request = gapi.client.drive.about.get();
+    request.execute(function (resp) {
+        document.getElementById('avatar').src = resp.user.picture.url;
+
+        document.getElementById('avatar').style.visibility = 'visible';
+    });
 }
 
 
@@ -50,8 +49,12 @@ function handleAuthResult(authResult) {
     authButton.style.display = 'none';
 
     if (authResult && !authResult.error) {
+
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('taskInput').readOnly = true;
         gapi.client.load('drive', 'v2', function () {
-			printAbout();
+
+            printAbout();
             getFile();
         });
 
@@ -204,6 +207,8 @@ function downloadFile(file) {
             console.log(appData);
 
             setTasks();
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('taskInput').readOnly = false;
         };
         xhr.onerror = function () {
             console.log('XHR error!');
