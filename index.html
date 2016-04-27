@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="https://raw.githubusercontent.com/noizwaves/bootstrap-social-buttons/v1.0.0/social-buttons.css">	
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="bootstrap-social.css">		
 
@@ -28,11 +29,20 @@
 
     <body>	
 
-        <input type="text" id="json" style="display: none">		
-        <input type="button" id="authorizeButton" value="Authorize" onclick="checkAuth()" style="display: none;"/>
+        <div id="content">
+            <input type="text" id="json" style="display: none">		
 
-        <div id="header">
-            <p>Task Manager</p>
+            <div id="header">
+
+                <div id="name">
+                    <p>Task Manager</p>
+                </div>
+
+                <div id="auth">
+                    <button id="authorizeButton" class="btn btn-xs btn-google" onclick="checkAuth()" style="display: ;"><i class="fa fa-google-plus" aria-hidden="true"> Sign in</i></button>
+                </div>
+
+            </div>
 
             <div id="div_tasks">
 

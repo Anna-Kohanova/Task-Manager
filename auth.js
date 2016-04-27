@@ -24,6 +24,14 @@ function checkAuth() {
     gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true}, handleAuthResult);
 }
 
+/**
+ * Get user avatar
+ */
+
+function setAvatar() {
+
+}
+
 
 /**
  * Called when authorization server replies.
@@ -33,10 +41,11 @@ function checkAuth() {
 function handleAuthResult(authResult) {
 
     var authButton = document.getElementById('authorizeButton');
-    authButton.style.display = 'none';
+    // authButton.style.display = 'none';
 
     if (authResult && !authResult.error) {
         gapi.client.load('drive', 'v2', function () {
+
             getFile();
         });
 

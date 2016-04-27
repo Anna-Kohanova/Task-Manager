@@ -5,24 +5,24 @@
 
 body {
     margin: 0 auto;
-    display: block;
-    overflow: hidden;
-    width: 300px;
-    height: 400px;
-    background-color: #B0E0E6;
+	display: block;
+	overflow: hidden;
+	width: 300px;
+	height: 320px;
+	background-color: #B0E0E6;
 }
 
 li {
     display: list-item;
     color: white;
-    position: relative;	
-    word-break: break-all;
-    white-space: pre-line;
+	position: relative;	
+	word-break: break-all;
+	white-space: pre-line;
 }
 
 ul#taskList {
-    display: block;
-    list-style: none;
+	display: block;
+	list-style: none;
 }
 
 label {
@@ -30,38 +30,52 @@ label {
 }
 
 p {
-    float:left;
-    width: 80%;
-    font-size: 30px;
+	color: white;
+	font-size: 30px;
     text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-div {
-    display: block;
+	font-family: Arial, sans-serif;
 }
 
 div#header {
-    height: 60px;
-    background-color: #B0E0E6;
+	height: 60px;
+	width: 100%;
+}
+
+div#name {
+	float: left;
+	width: 75%;
+}
+
+div#auth {
+	float: right;
+	width: 25%;
+	margin-top: 9px;
 }
 
 div#div_tasks {
     display: block;
     position: relative;
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 div#inputContainer {
-    padding: 10px;
-    padding-top: 0px;
+	padding: 10px;
+	padding-top: 0px;
     display: inline-block;
-    background-color: #B0E0E6;
     width: 100%;	
 }
 
 div#inputContainer #taskInput {
-    width: 100%;
+	width: 100%;
+}
+
+::-webkit-scrollbar {
+width: 15px;
+height: 15px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+background-color: #708090;
 }
 
 a#plus{
@@ -69,23 +83,25 @@ a#plus{
     width: 5%;
     float: right;
     margin-top: 6px;
+	color: white;
 }
 
-div#listWrapper {		
-    height: 230px;
-    width: 300px;
-    padding: 10px;
-
-    left: 0;
-    right: 0;
-    position: absolute;
-    overflow-y: scroll;	
-
-    background-color: #666;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
-    -moz-border-radius: 5px;
+div#listWrapper {	
+	background-size: cover;
+	height: 260px;
+	width: 300px;
+	padding: 10px;
+	
+	left: 0;
+	right: 0;
+	position: absolute;
+	overflow-y: scroll;	
+		
+	
+	background-color: #666;
+	color: #fff;
+	font-weight: bold;
+	-moz-border-radius: 5px;
 }
 
 .task:hover span.remove{
@@ -95,10 +111,10 @@ div#listWrapper {
 span.remove {
     display: none;
     float: right;
-    margin-right: 10px;
-    margin: auto 0;
-    buttom: 0;
-    top: 0;
+	margin-right: 10px;
+	margin: auto 0;
+	buttom: 0;
+	top: 0;
 }
 
 .new-todo {
