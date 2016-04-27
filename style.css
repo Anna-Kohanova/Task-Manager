@@ -93,6 +93,7 @@ a#plus{
 }
 
 div#listWrapper {	
+	background-image: url('cars/1.jpg');
 	background-size: cover;
 	height: 260px;
 	width: 300px;

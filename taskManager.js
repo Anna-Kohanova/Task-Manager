@@ -6,23 +6,35 @@ $(document).ready(function () {
     })
 });
 
-$(document).ready(function () {
+/*$(document).ready(function () {
 var backgroundMap = new Map();
-backgroundMap.set('1.jpg', '#494b73');
-backgroundMap.set('2.jpg', '#5c65ad');
-backgroundMap.set('3.jpg', '#b3d0db');
-backgroundMap.set('4.jpg', '#9fbdd2');
-backgroundMap.set('5.jpg', '#a9cbdf');
-backgroundMap.set('6.jpg', '#a2a1fb');
+backgroundMap.set('cats/1.jpg', '#494b73');
+backgroundMap.set('cats/2.jpg', '#5c65ad');
+backgroundMap.set('cats/3.jpg', '#b3d0db');
+backgroundMap.set('cats/4.jpg', '#9fbdd2');
+backgroundMap.set('cats/5.jpg', '#a9cbdf');
+backgroundMap.set('cats/6.jpg', '#a2a1fb');
 
 var min = 1;
 var max = 6;
 
 var num = Math.random() * (max - min) + min;
-num = Math.round(num) + '.jpg';
+num = 'cats/' + Math.round(num) + '.jpg';
 
 document.getElementById('listWrapper').style.backgroundImage = 'url('+num+')';
 document.getElementById('content').style.backgroundColor = backgroundMap.get(num);
+});*/
+
+
+$(document).ready(function () {
+var min = 1;
+var max = 7;
+
+var num = Math.random() * (max - min) + min;
+num = 'cars/' + Math.round(num) + '.jpg';
+
+document.getElementById('listWrapper').style.backgroundImage = 'url('+num+')';
+document.getElementById('content').style.backgroundColor = '#343433';
 });
 
 
