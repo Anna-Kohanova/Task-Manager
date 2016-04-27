@@ -9,7 +9,6 @@ body {
 	overflow: hidden;
 	width: 300px;
 	height: 320px;
-	background-color: #B0E0E6;
 }
 
 li {
@@ -23,6 +22,7 @@ li {
 ul#taskList {
 	display: block;
 	list-style: none;
+	margin-left: 10px;
 }
 
 label {
@@ -34,6 +34,15 @@ p {
 	font-size: 30px;
     text-align: center;
 	font-family: Arial, sans-serif;
+}
+
+img#avatar {
+	width: 35px;
+	height: 35px;
+	border-color: white;
+	border-width: 1px;
+	border-style: solid;
+    border-radius: 50%;
 }
 
 div#header {
@@ -74,9 +83,6 @@ width: 15px;
 height: 15px;
 }
 
-::-webkit-scrollbar-thumb:vertical {
-background-color: #708090;
-}
 
 a#plus{
     display: inline-block !important;
@@ -113,8 +119,8 @@ span.remove {
     float: right;
 	margin-right: 10px;
 	margin: auto 0;
-	buttom: 0;
 	top: 0;
+	width: 3%;
 }
 
 .new-todo {
@@ -128,6 +134,7 @@ span.remove {
 
 .toggle {
     display: inline-block !important;
+	padding-top: 8px;
 }
 
 .group { zoom: 1 }

@@ -39,7 +39,8 @@
                 </div>
 
                 <div id="auth">
-                    <button id="authorizeButton" class="btn btn-xs btn-google" onclick="checkAuth()" style="display: ;"><i class="fa fa-google-plus" aria-hidden="true"> Sign in</i></button>
+                    <button id="authorizeButton" class="btn btn-xs btn-google" onclick="checkAuth()" style="display: none;"><i class="fa fa-google-plus" aria-hidden="true"> Sign in</i></button>
+                    <img id="avatar"/>
                 </div>
 
             </div>
@@ -47,7 +48,7 @@
             <div id="div_tasks">
 
                 <div id="inputContainer">
-                    <input id="taskInput" class="new-todo form-control" name = "new" placeholder="Add new task"  maxlength="25" autofocus>
+                    <input id="taskInput" class="new-todo form-control" name = "new" placeholder="Add new task"  maxlength="40" autofocus>
                     <a id="plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                 </div>
                 <div id="listWrapper">

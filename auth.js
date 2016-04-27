@@ -1,5 +1,5 @@
 var CLIENT_ID = '121706767932-v6bt4jgv4kn3295p46kk46255g237njv.apps.googleusercontent.com';
-var SCOPES = 'https://www.googleapis.com/auth/drive';
+var SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/plus.login'];
 
 var metadata = {}; // file metadata for creating/updating
 var appData = {}; // data for saving
@@ -21,15 +21,21 @@ function handleClientLoad() {
  * Check if the current user has authorized the application.
  */
 function checkAuth() {
-    gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true}, handleAuthResult);
+    gapi.auth.authorize({'client_id': CLIENT_ID, 'scope': SCOPES[0], 'immediate': true}, handleAuthResult);
 }
 
 /**
- * Get user avatar
- */
+* Get user avatar
+*/
 
-function setAvatar() {
-
+	function printAbout() {
+  var request = gapi.client.drive.about.get();
+  request.execute(function(resp) {
+    console.log('Current user name: ' + resp.name);
+    console.log('Root folder ID: ' + resp.rootFolderId);
+    console.log('Total quota (bytes): ' + resp.quotaBytesTotal);
+    document.getElementById('avatar').src = resp.user.picture.url;
+  });
 }
 
 
@@ -41,11 +47,11 @@ function setAvatar() {
 function handleAuthResult(authResult) {
 
     var authButton = document.getElementById('authorizeButton');
-    // authButton.style.display = 'none';
+    authButton.style.display = 'none';
 
     if (authResult && !authResult.error) {
         gapi.client.load('drive', 'v2', function () {
-
+			printAbout();
             getFile();
         });
 
@@ -54,7 +60,7 @@ function handleAuthResult(authResult) {
 
         authButton.onclick = function () {
             gapi.auth.authorize(
-                    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
+                    {'client_id': CLIENT_ID, 'scope': SCOPES[0], 'immediate': false},
             handleAuthResult);
         };
     }
