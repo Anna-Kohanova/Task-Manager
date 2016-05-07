@@ -30,10 +30,13 @@ function checkAuth() {
 
 function printAbout() {
     var request = gapi.client.drive.about.get();
-    request.execute(function (resp) {
-        document.getElementById('avatar').src = resp.user.picture.url;
 
-        document.getElementById('avatar').style.visibility = 'visible';
+    request.execute(function (resp) {
+        if (resp.user.picture.url) {
+            document.getElementById('avatar').src = resp.user.picture.url;
+            document.getElementById('avatar').style.visibility = 'visible';
+        }
+
     });
 }
 
@@ -53,7 +56,6 @@ function handleAuthResult(authResult) {
         document.getElementById('loading').style.display = 'block';
         document.getElementById('taskInput').readOnly = true;
         gapi.client.load('drive', 'v2', function () {
-
             printAbout();
             getFile();
         });
@@ -159,6 +161,9 @@ function updateFile(fileId) {
         'body': multipartRequestBody});
     request.execute(function (res) {
         console.log('File successfully updated!');
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('taskInput').readOnly = false;
     });
 }
 

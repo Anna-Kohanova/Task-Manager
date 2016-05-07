@@ -83,6 +83,15 @@ div#inputContainer #taskInput {
     height: 15px;
 }
 
+a#settings {
+    color: white;
+    padding-left: 12px;
+}
+
+a#settings:hover {
+
+}
+
 
 a#plus{
     display: inline-block !important;
@@ -102,8 +111,7 @@ div#listWrapper {
     left: 0;
     right: 0;
     position: absolute;
-    overflow-y: scroll;	
-
+    overflow-y: scroll;			
 
     background-color: #666;
     color: #fff;
@@ -115,13 +123,26 @@ div#listWrapper {
     display: block;
 }
 
+.task:hover span.edit{
+    display: block;
+}
+
+span.edit {
+    display: none;
+    float: right;
+    width: 3%;
+    margin-right: 5px;
+    margin: auto 0;
+    top: 0;
+}
+
 span.remove {
     display: none;
     float: right;
     margin-right: 10px;
     margin: auto 0;
     top: 0;
-    width: 3%;
+    width: 8%;
 }
 
 .new-todo {

@@ -22,7 +22,7 @@
         <script src="auth.js"></script>	
         <script src="taskManager.js"></script>			
 
-        <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>		
 
 
     </head>
@@ -30,7 +30,7 @@
     <body>	
 
         <div id="content">
-            <input type="text" id="json" style="display: none">		
+            <input type="text" id="json" style="display: none;">		
 
             <div id="header">
 
@@ -39,15 +39,13 @@
                 </div>
 
                 <div id="auth">
-                    <button id="authorizeButton" class="btn btn-xs btn-google" onclick="checkAuth()" style="display: none;"><i class="fa fa-google-plus" aria-hidden="true"> Sign in</i></button>
-                    <img id="avatar" style="visibility: hidden"/>
-                    <!--class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"-->
-
-                </div>
-
+                    <button id="authorizeButton" class="btn btn-xs btn-google" onclick="checkAuth();" style="display: none;"><i class="fa fa-google-plus" aria-hidden="true"> Sign in</i></button>
+                    <img id="avatar" style="visibility: hidden;"/>
+                    <!--<a id="settings"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>-->				 
+                </div>			
             </div>
 
-            <div id="div_tasks">
+            <div id="div_tasks" >
 
                 <div id="inputContainer">
                     <input id="taskInput" class="new-todo form-control" name = "new" placeholder="Add new task"  maxlength="40" autofocus>
@@ -57,7 +55,7 @@
                 <div id="listWrapper">
 
                     <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"
-                       id="loading" style="display: none"></i>
+                       id="loading" style="display: none;"></i>
                     <ul id="taskList"></ul>
                 </div>
 
