@@ -97,16 +97,22 @@ function updateCompletedListArray() {
 /////// "PLUS" CLICK EVENT, CALL ADDTOLIST FUNCTION //////
 function saveTask() {
 
-    var itemValue = $('.new-todo').val();
-
-    if (itemValue !== '') {
-
-        addToList(itemValue);
+    if (currentId > -1) {
+        tasks[currentId].name = document.getElementById("taskInput").value;
+        updateListView();
+        currentId = -1;
     }
 
-    $('.new-todo').val(null);
+    else {
+        var itemValue = $('.new-todo').val();
 
-    $('.new-todo').focus();
+        if (itemValue !== '') {
+            addToList(itemValue);
+        }
+
+        $('.new-todo').val(null);
+        $('.new-todo').focus();
+    }
 }
 
 /////// "REMOVE" CLICK EVENT, CALL "DELETEFROMLIST" FUNCTION ///////
