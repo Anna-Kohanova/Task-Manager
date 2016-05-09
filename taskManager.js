@@ -54,11 +54,14 @@ function setTasks() {
     if (document.getElementById('json').value != '') {
         tasks = JSON.parse(document.getElementById('json').value);
         updateListView();
+        updateCompletedListArray();
     }
 }
 
 window.onload = function () {
     document.getElementById('plus').onclick = saveTask;
+    document.getElementById('deleteCompletedBtn').onclick = deleteCompleted;
+    document.getElementById('clearTasksBtn').onclick = deleteAll;
 }
 
 /////// ADD NEW TASK IN LIST TASKS, UPDATING HTML, SAVING IN LOCAL STORAGE ////////
@@ -89,7 +92,7 @@ function updateCompletedListArray() {
 
     tasks.forEach(function (task) {
         if (task.done)
-            completedTasks.push(taskList.indexOf(task) + '');
+            completedTasks.push(tasks.indexOf(task) + '');
     });
 }
 
@@ -104,9 +107,11 @@ function saveTask() {
     }
 
     else {
+
         var itemValue = $('.new-todo').val();
 
         if (itemValue !== '') {
+
             addToList(itemValue);
         }
 
@@ -212,6 +217,27 @@ function toggleChecked(e) {
         $(this).siblings('label').css('text-decoration', 'none');
     }
     $('.new-todo').focus();
+}
+
+function deleteCompleted() {
+
+    for (var i = completedTasks.length; i--; ) {
+        tasks.splice(completedTasks[i], 1);
+    }
+
+    saveData();
+    updateCompletedListArray();
+    updateListView();
+}
+
+function deleteAll() {
+    if ((tasks.length > 0) && confirm("Are you sure you want to delete all your tasks?")) {
+        var ul = document.getElementById('taskList');
+        ul.innerHTML = '';
+        tasks = completedTasks = [];
+        document.getElementById('json').value = JSON.stringify(tasks);
+        saveData();
+    }
 }
 
 $(".toggle").on('click', toggleChecked);
