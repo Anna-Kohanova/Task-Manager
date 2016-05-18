@@ -1,8 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "Task Manager",
-    "description": "This extension will show Task Manager",
+    "name": "To-Do List",
+    "description": "This extension will show To-Do List",
     "version": "1.0",
+
     
     "browser_action": {
         "default_icon": "icon.png",
@@ -10,13 +11,15 @@
     },	
   
     "permissions": [
-        "identity"
+        "identity",
+		 "https://accounts.google.com/o/oauth2/token"
     ],
 	
 	"oauth2": {
         "client_id": "121706767932-v6bt4jgv4kn3295p46kk46255g237njv.apps.googleusercontent.com",
         "scopes": [
-             "https://www.googleapis.com/auth/drive"
+             "https://www.googleapis.com/auth/drive",
+			 "https://www.googleapis.com/auth/plus"
         ]   
     },   
 	

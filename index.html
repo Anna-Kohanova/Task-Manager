@@ -35,7 +35,7 @@
             <div id="header">
 
                 <div id="name">
-                    <p>Task Manager</p>
+                    <p>To-Do List</p>
                 </div>
 
                 <div id="auth">
@@ -54,10 +54,11 @@
                 </div>
 
                 <div id="deleteBtnWrapper" >
-                    <button id="deleteCompletedBtn">Delete Completed</button>
-                    <button id="clearTasksBtn">Clear</button>
+                    <button id="deleteCompletedBtn" class="btn btn-primary" style="margin-left : 5px; margin-bottom: 5px;">Delete Completed</button>
+                    <button id="clearTasksBtn" class="btn btn-primary" style="margin-bottom: 5px;">Delete All</button>
+                    <label id="count"></label>
                 </div>
-                <div id="listWrapper">
+                <div id="listWrapper" style = " word-break: break-word;">
 
                     <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"
                        id="loading" style="display: none;"></i>

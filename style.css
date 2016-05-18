@@ -5,91 +5,95 @@
 
 body {
     margin: 0 auto;
-    display: block;
-    overflow: hidden;
-    width: 300px;
-    height: 320px;
+	display: block;
+	overflow: hidden;
+	width: 300px;
+	height: 320px;
 }
 
 li {
     display: list-item;
     color: white;
-    position: relative;	
-    word-break: break-all;
-    white-space: pre-line;
+	position: relative;	
+	word-break: break-all;
+	white-space: pre-line;
 }
 
 ul#taskList {
-    display: block;
-    list-style: none;
-    margin-left: 10px;
+	display: block;
+	list-style: none;
 }
 
 label {
     display: inline-block !important;
 }
 
+label#count {
+	color: white;
+	font-size: 16px;
+}
+
 p {
-    color: white;
-    font-size: 30px;
+	color: white;
+	font-size: 40px;
     text-align: center;
-    font-family: Arial, sans-serif;
+	font-family: Arial, sans-serif;
 }
 
 img#avatar {
-    width: 35px;
-    height: 35px;
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
+	width: 38px;
+	height: 38px;
+	border-color: white;
+	border-width: 1px;
+	border-style: solid;
     border-radius: 50%;
 }
 
 div#header {
-    height: 60px;
-    width: 100%;
+	height: 60px;
+	width: 100%;
 }
 
 div#name {
-    float: left;
-    width: 75%;
+	float: left;
+	width: 75%;
 }
 
 div#auth {
-    float: right;
-    width: 25%;
-    margin-top: 9px;
+	float: right;
+	width: 25%;
+	margin-top: 9px;
 }
 
 div#div_tasks {
     display: block;
     position: relative;
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 div#inputContainer {
-    padding: 10px;
-    padding-top: 0px;
+	padding: 10px;
+	padding-top: 0px;
     display: inline-block;
     width: 100%;	
 }
 
 div#inputContainer #taskInput {
-    width: 100%;
+	width: 100%;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
-    height: 15px;
+width: 0px;
+height: 15px;
 }
 
 a#settings {
-    color: white;
-    padding-left: 12px;
+	color: white;
+	padding-left: 12px;
 }
 
 a#settings:hover {
-
+	
 }
 
 
@@ -98,25 +102,27 @@ a#plus{
     width: 5%;
     float: right;
     margin-top: 6px;
-    color: white;
+	color: white;
 }
 
+
+
 div#listWrapper {	
-    background-image: url('cars/1.jpg');
-    background-size: cover;
-    height: 260px;
-    width: 300px;
-    padding: 10px;
-
-    left: 0;
-    right: 0;
-    position: absolute;
-    overflow-y: scroll;			
-
-    background-color: #666;
-    color: #fff;
-    font-weight: bold;
-    -moz-border-radius: 5px;
+	background-image: url('cars/1.jpg');
+	background-size: cover;
+	height: 260px;
+	width: 300px;
+	padding: 10px;
+	
+	left: 0;
+	right: 0;
+	
+	overflow-y: scroll;			
+	
+	background-color: #666;
+	color: #fff;
+	font-weight: bold;
+	-moz-border-radius: 5px;
 }
 
 .task:hover span.remove{
@@ -128,21 +134,21 @@ div#listWrapper {
 }
 
 span.edit {
-    display: none;
-    float: right;
-    width: 3%;
-    margin-right: 5px;
-    margin: auto 0;
-    top: 0;
+	display: none;
+	float: right;
+	width: 3%;
+	margin-right: 5px;
+	margin: auto 0;
+	top: 0;
 }
 
 span.remove {
     display: none;
     float: right;
-    margin-right: 10px;
-    margin: auto 0;
-    top: 0;
-    width: 8%;
+	margin-right: 10px;
+	margin: auto 0;
+	top: 0;
+	width: 8%;
 }
 
 .new-todo {
@@ -156,7 +162,6 @@ span.remove {
 
 .toggle {
     display: inline-block !important;
-    padding-top: 8px;
 }
 
 .group { zoom: 1 }

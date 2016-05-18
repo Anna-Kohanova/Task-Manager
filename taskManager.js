@@ -1,10 +1,13 @@
 var currentId = -1;
 var completedTasks = [];
 var tasks = [];
+var countCompletedTasks = 0;
+var countTasks = 0;
 
 $(document).ready(function () {
     $("#taskInput").keyup(function (event) {
         if (event.keyCode == 13 && currentId == -1) {
+            countTasks++;
             $("#plus").click();
         }
 
@@ -75,10 +78,12 @@ function addToList(task) {
     updateListView();
 }
 
-/////// DELETE FROM LIST TASKS, UPDATING HTML, SAVING IN LOCAL STORAGE /////
+/////// DELETE FROM LIST TASKS, UPDATING HTML /////
 function deleteFromList(e) {
     tasks.splice(e.target.parentElement.id, 1);
+
     updateListView();
+    updateCompletedListArray();
 }
 
 function editTask(e) {
@@ -133,8 +138,14 @@ function updateListView() {
 
     $('.new-todo').val(null);
 
+    countTasks = 0;
+    countCompletedTasks = 0;
+    currentId = -1;
+
     if (tasks.length != 0) {
         tasks.forEach(function (task) {
+
+            countTasks++;
 
             var li = document.createElement("li");
             li.className = "task";
@@ -144,25 +155,30 @@ function updateListView() {
             var label = document.createElement("label");
             label.className = "taskText";
             label.textContent = task.name;
+            label.style.width = '70%';
 
             var ch = document.createElement("input");
             ch.className = "toggle";
             ch.type = "checkbox";
+            ch.style.width = '10%';
             ch.checked = task.done;
             ch.onclick = toggleChecked;
             ch.id = tasks.indexOf(task);
 
             if (task.done) {
                 label.style.textDecoration = 'line-through';
+                countCompletedTasks++;
             }
 
             var spanRemove = document.createElement("span");
             spanRemove.className = "remove glyphicon glyphicon-remove";
             spanRemove.onclick = deleteFromList;
+            spanRemove.style.width = '10%';
 
             var spanEdit = document.createElement("span");
             spanEdit.className = "edit glyphicon glyphicon-pencil";
             spanEdit.onclick = editTask;
+            spanEdit.style.width = '10%';
 
             li.appendChild(ch);
             li.appendChild(label);
@@ -173,6 +189,8 @@ function updateListView() {
             $('.new-todo').focus();
 
             document.getElementById('json').value = JSON.stringify(tasks);
+
+            document.getElementById('count').innerHTML = countCompletedTasks + '/' + countTasks;
         });
     } else {
         document.getElementById('json').value = '';
@@ -192,6 +210,7 @@ function toggleChecked(e) {
     if (completedTasks.length === 0) {
         completedTasks.push(taskId);
     }
+
     else {
         completedTasks.forEach(function (index) {
             if (taskId === index) {
@@ -212,9 +231,14 @@ function toggleChecked(e) {
 
     if ($(this).is(':checked')) {
         $(this).siblings('label').css('text-decoration', 'line-through');
+        countCompletedTasks++;
+        document.getElementById('count').innerHTML = countCompletedTasks + '/' + countTasks;
     }
+
     else {
         $(this).siblings('label').css('text-decoration', 'none');
+        countCompletedTasks--;
+        document.getElementById('count').innerHTML = countCompletedTasks + '/' + countTasks;
     }
     $('.new-todo').focus();
 }
@@ -225,6 +249,8 @@ function deleteCompleted() {
         tasks.splice(completedTasks[i], 1);
     }
 
+    countCompletedTasks = 0;
+
     saveData();
     updateCompletedListArray();
     updateListView();
@@ -234,8 +260,15 @@ function deleteAll() {
     if ((tasks.length > 0) && confirm("Are you sure you want to delete all your tasks?")) {
         var ul = document.getElementById('taskList');
         ul.innerHTML = '';
-        tasks = completedTasks = [];
+        tasks = [];
+        completedTasks = [];
         document.getElementById('json').value = JSON.stringify(tasks);
+
+        countCompletedTasks = 0;
+        countTasks = 0;
+
+        document.getElementById('count').innerHTML = countCompletedTasks + '/' + countTasks;
+
         saveData();
     }
 }

@@ -25,19 +25,19 @@ function checkAuth() {
 }
 
 /**
- * Get user avatar
- */
+* Get user avatar
+*/
 
-function printAbout() {
-    var request = gapi.client.drive.about.get();
-
-    request.execute(function (resp) {
-        if (resp.user.picture.url) {
-            document.getElementById('avatar').src = resp.user.picture.url;
-            document.getElementById('avatar').style.visibility = 'visible';
-        }
-
-    });
+	function printAbout() {
+	  var request = gapi.client.drive.about.get();
+	  
+	  request.execute(function(resp) {
+		if (resp.user.picture.url) {
+			document.getElementById('avatar').src = resp.user.picture.url;
+			document.getElementById('avatar').style.visibility = 'visible';
+		}
+		
+	  });	 
 }
 
 
@@ -51,12 +51,12 @@ function handleAuthResult(authResult) {
     var authButton = document.getElementById('authorizeButton');
     authButton.style.display = 'none';
 
-    if (authResult && !authResult.error) {
-
-        document.getElementById('loading').style.display = 'block';
-        document.getElementById('taskInput').readOnly = true;
-        gapi.client.load('drive', 'v2', function () {
-            printAbout();
+    if (authResult && !authResult.error) {	
+		
+			document.getElementById('loading').style.display = 'block';
+			document.getElementById('taskInput').readOnly = true;
+        gapi.client.load('drive', 'v2', function () {			
+			printAbout();
             getFile();
         });
 
@@ -161,9 +161,9 @@ function updateFile(fileId) {
         'body': multipartRequestBody});
     request.execute(function (res) {
         console.log('File successfully updated!');
-
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('taskInput').readOnly = false;
+		
+			document.getElementById('loading').style.display = 'none';
+			document.getElementById('taskInput').readOnly = false;
     });
 }
 
@@ -212,8 +212,8 @@ function downloadFile(file) {
             console.log(appData);
 
             setTasks();
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('taskInput').readOnly = false;
+			document.getElementById('loading').style.display = 'none';
+			document.getElementById('taskInput').readOnly = false;
         };
         xhr.onerror = function () {
             console.log('XHR error!');
