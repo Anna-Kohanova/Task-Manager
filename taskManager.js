@@ -4,6 +4,7 @@ var tasks = [];
 var countCompletedTasks = 0;
 var countTasks = 0;
 
+
 $(document).ready(function () {
     $("#taskInput").keyup(function (event) {
         if (event.keyCode == 13 && currentId == -1) {
@@ -54,6 +55,8 @@ $(document).ready(function () {
 
 
 function setTasks() {
+	a="5"; b=2; c= a+++b;
+console.log(c);
     if (document.getElementById('json').value != '') {
         tasks = JSON.parse(document.getElementById('json').value);
         updateListView();
